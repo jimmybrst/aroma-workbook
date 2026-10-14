@@ -3,7 +3,7 @@
 <style>
 :root{--bg:#FAF6EE;--panel:#FFFDF8;--text:#3B2F2A;--muted:#8A7F76;--accent:#A0573A;--accent-soft:#F3E4DA;--line:#E6DDD0;--hover:#F5EEE3}
 *{box-sizing:border-box}html,body{margin:0;height:100%}
-body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.7}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑","Noto Sans CJK SC","Noto Sans SC","Source Han Sans SC","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.7}
 header{display:flex;align-items:center;gap:12px;padding:12px 22px;border-bottom:1px solid var(--line);background:var(--panel)}
 header h1{font-size:18px;margin:0;font-weight:600;letter-spacing:.05em}header .sub{font-size:12px;color:var(--muted)}
 header .r{margin-left:auto;display:flex;align-items:center;gap:14px;font-size:13px;color:var(--muted)}
@@ -2120,8 +2120,8 @@ const nd=DATA.categories.reduce((a,c)=>a+c.descriptors.length,0);
 document.getElementById('cnt').textContent=`${DATA.categories.length} 大类 · ${nd} 描述词 · ${flat.length} 个参照物`;
 const esc=s=>(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const open=new Set();let cur=null;
-const enBox=document.getElementById('en');enBox.checked=localStorage.getItem('noen')!=='1';
-const applyEn=()=>{document.body.classList.toggle('noen',!enBox.checked);localStorage.setItem('noen',enBox.checked?'0':'1')};enBox.onchange=applyEn;applyEn();
+const enBox=document.getElementById('en');const LS={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};enBox.checked=LS.get('noen')!=='1';
+const applyEn=()=>{document.body.classList.toggle('noen',!enBox.checked);LS.set('noen',enBox.checked?'0':'1')};enBox.onchange=applyEn;applyEn();
 function render(){const q=document.getElementById('q').value.trim().toLowerCase();let h='';
  DATA.categories.forEach((c,ci)=>{let ch='',n=0;
   c.descriptors.forEach(d=>{const ex=d.examples.map((e,i)=>({e,i})).filter(({e})=>!q||[c.category,c.category_zh,d.name,d.name_zh,e.example,e.example_zh,e.brands,e.brands_zh].join(' ').toLowerCase().includes(q));

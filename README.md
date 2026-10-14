@@ -24,7 +24,12 @@
 ### 不想装程序？用浏览器打开
 1. 打开仓库里的 [index.html](https://github.com/jimmybrst/aroma-workbook/blob/main/index.html)，点右上角的下载按钮（Download raw file）把它存到电脑上；或者点仓库首页绿色的「Code」按钮，选「Download ZIP」（[直接下载](https://github.com/jimmybrst/aroma-workbook/archive/refs/heads/main.zip)），解压后找到里面的 index.html
 2. 双击 `index.html`，会用默认浏览器（Safari、Chrome 等）打开
-3. 数据都在这一个文件里，不用联网，Windows 电脑也能用
+3. 数据都在这一个文件里，不用联网
+
+### Windows 电脑
+1. 下载 [index.html](https://github.com/jimmybrst/aroma-workbook/blob/main/index.html)（点右上角的下载按钮），或者 [下载整个项目 ZIP](https://github.com/jimmybrst/aroma-workbook/archive/refs/heads/main.zip) 后右键「全部解压缩」
+2. 双击 `index.html`，会在 Edge 或 Chrome 中打开（Firefox 也可以）
+3. 不需要安装任何程序，也不用联网；字体会自动使用系统自带的微软雅黑
 
 ## 参照物怎么选
 - 同一个描述词下面会列出多个参照物，选一个就能练，不用全部准备
@@ -40,5 +45,5 @@
 ## 文件
 - `index.html`：程序界面，数据已经内置
 - `data_en.json` / `data_zh.json`：英文原始数据和中文数据
-- `screenshot.png` / `icon_preview.png`：截图和图标预览
+- `screenshot.png` / `screenshot_windows.png` / `icon_preview.png`：截图（macOS 字体 / Windows 字体回退）和图标预览
 - `aroma-workbook-macos.zip`：macOS 程序（解压得到 `香气练习册.app`），不在仓库里，请到 [Releases 页面](https://github.com/jimmybrst/aroma-workbook/releases/latest) 下载
