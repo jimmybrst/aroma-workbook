@@ -1,0 +1,2159 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>香气练习册</title>
+<style>
+:root{--bg:#FAF6EE;--panel:#FFFDF8;--text:#3B2F2A;--muted:#8A7F76;--accent:#A0573A;--accent-soft:#F3E4DA;--line:#E6DDD0;--hover:#F5EEE3}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.7}
+header{display:flex;align-items:center;gap:12px;padding:12px 22px;border-bottom:1px solid var(--line);background:var(--panel)}
+header h1{font-size:18px;margin:0;font-weight:600;letter-spacing:.05em}header .sub{font-size:12px;color:var(--muted)}
+header .r{margin-left:auto;display:flex;align-items:center;gap:14px;font-size:13px;color:var(--muted)}
+.tg{display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none}.tg input{accent-color:var(--accent)}
+.wrap{display:flex;height:calc(100% - 63px)}
+aside{width:340px;min-width:260px;background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column}
+.search{padding:12px;border-bottom:1px solid var(--line)}
+.search input{width:100%;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font-size:14px;outline:none}
+.search input:focus{border-color:var(--accent)}
+.list{overflow:auto;flex:1;padding:6px 0 30px}
+.cat{display:flex;align-items:center;gap:8px;padding:10px 16px;cursor:pointer;font-weight:600;font-size:15px;user-select:none}
+.cat:hover{background:var(--hover)}.cat .ar{width:12px;color:var(--muted);transition:transform .15s;font-size:11px}.cat.open .ar{transform:rotate(90deg)}
+.cnt{margin-left:auto;font-size:12px;font-weight:400;color:var(--muted);background:var(--bg);border-radius:10px;padding:0 8px}
+.desc{padding:6px 16px 2px 36px;font-size:13px;color:var(--accent);display:flex}
+.item{padding:6px 16px 6px 44px;cursor:pointer;border-left:3px solid transparent;font-size:14px;line-height:1.5}
+.item small{display:block;color:var(--muted);font-size:11.5px}
+.item:hover{background:var(--hover)}.item.on{background:var(--accent-soft);border-left-color:var(--accent)}
+main{flex:1;overflow:auto;padding:28px 36px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:26px 30px;max-width:820px}
+.card h2{margin:0;font-size:24px;font-weight:600;line-height:1.4}
+.en{color:var(--muted);font-size:13px}
+.row{display:grid;grid-template-columns:76px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+.row>b{font-weight:500;color:var(--muted);font-size:13px;padding-top:2px}
+.tag{display:inline-block;background:var(--accent-soft);color:var(--accent);border-radius:6px;padding:0 10px;margin-right:6px;font-size:13px}
+ol{margin:0;padding-left:1.4em}ol li{margin-bottom:4px}ol li::marker{color:var(--accent);font-weight:600}
+.others{margin-top:20px}.others h3{font-size:14px;font-weight:500;color:var(--muted);margin:0 0 8px}
+.chip{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:3px 12px;margin:0 8px 8px 0;font-size:13px;cursor:pointer;background:var(--bg);color:var(--text)}
+.chip:hover,.chip.on{border-color:var(--accent);color:var(--accent)}
+.note{font-size:12px;color:var(--muted)}
+body.noen .en{display:none}
+.back{display:none}
+@media(max-width:760px){.wrap{display:block;height:auto}aside{width:100%;border-right:0;height:calc(100vh - 63px)}main{padding:12px;display:none}body.detail aside{display:none}body.detail main{display:block}.back{display:inline-block}.card{padding:18px}.row{grid-template-columns:1fr;gap:2px}header .sub{display:none}}
+</style></head><body>
+<header><div><h1>香气练习册</h1><div class="sub">咖啡价值评估（CVA）描述性表单 · 每日香气训练</div></div>
+<div class="r"><span id="cnt"></span><label class="tg"><input type="checkbox" id="en" checked>显示英文原文</label></div></header>
+<div class="wrap"><aside><div class="search"><input id="q" placeholder="搜索描述词、参照物、品牌（中/英）"></div><div class="list" id="list"></div></aside>
+<main id="main"></main></div>
+<script>
+const DATA={
+ "source": "https://sca.coffee/value-assessment/olfactory-examples (Airtable shared views appd3zwlHEwBt4eRs)",
+ "retrieved": "2026-10-14",
+ "categories": [
+  {
+   "category": "Green/Vegetative",
+   "category_zh": "青绿",
+   "descriptors": [
+    {
+     "name": "Green/Vegetative",
+     "examples": [
+      {
+       "id": "rec2RthX7ULGRZ8Ek",
+       "descriptor": "Green/Vegetative",
+       "example": "Le Nez du Café 2.0 - Vial #26: Cucumber",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 26 号：黄瓜",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "rec2Zgh5oiCtFWDWh",
+       "descriptor": "Green/Vegetative",
+       "example": "Le Nez du Café 2.0 - Vial #24: Peapod",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 24 号：豌豆荚",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recAG8stULeSIzqgp",
+       "descriptor": "Green/Vegetative",
+       "example": "Le Nez du Café Revelation – Vial #4: Cucumber",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 4 号：黄瓜",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "recFyKNllaNxcITOh",
+       "descriptor": "Green/Vegetative",
+       "example": "Le Nez du Café 2.0 - Vial #28: Hay-like",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 28 号：干草",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recMTTSCgh9Hm48ke",
+       "descriptor": "Green/Vegetative",
+       "example": "Le Nez du Café 2.0 - Vial #29: Thyme",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 29 号：百里香",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recULfubqftje7Gby",
+       "descriptor": "Green/Vegetative",
+       "example": "Scentone T100 – Vial #91: Cucumber",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "\"Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 91 号：黄瓜",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "recgbHsTlnRUTL5nx",
+       "descriptor": "Green/Vegetative",
+       "example": "Le Nez du Café 2.0 - Vial #27: Green (Bell) Pepper",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 27 号：青椒（甜椒）",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "reciKrbhUyGpo6mvG",
+       "descriptor": "Green/Vegetative",
+       "example": "Le Nez du Café Revelation – Vial #3: Garden Peas",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 3 号：豌豆",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "recksontpgGpxWFlB",
+       "descriptor": "Green/Vegetative",
+       "example": "Le Nez du Café 2.0 - Vial #25: Grass (Fresh)",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 25 号：青草（新鲜）",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "rectY9pjn29yFwlSc",
+       "descriptor": "Green/Vegetative",
+       "example": "Parsley water",
+       "prepare": "Rinse and chop 25 grams of fresh parsley. Add 300mL of water and let sit for 15 minutes. Filter out the parsley. Serve one tablespoon of the water in a glass or plastic cup.",
+       "brands": "",
+       "source": "English view",
+       "example_zh": "欧芹水",
+       "prepare_zh": "将 25 克新鲜欧芹洗净切碎，加入 300 毫升水静置 15 分钟，滤去欧芹。取一汤匙欧芹水放入玻璃杯或塑料杯中呈样。",
+       "brands_zh": ""
+      },
+      {
+       "id": "recJN2wOQuIgIrj2U",
+       "descriptor": "Green/Vegetative",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #061: Fresh Peas",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 061 号：新鲜豌豆",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      },
+      {
+       "id": "rec4lqB7030QuMEpy",
+       "descriptor": "Green/Vegetative",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #376: Cucumber",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 376 号：黄瓜",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      },
+      {
+       "id": "recMu9M13pn1XFBtl",
+       "descriptor": "Green/Vegetative",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #819: Underripe",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 819 号：未熟",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      },
+      {
+       "id": "recXcIAhD37wTgjpc",
+       "descriptor": "Green/Vegetative",
+       "example": "FlavorActiV “freshly cut grass\" (cis-3-hexanol)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：新割青草（顺-3-己烯醇）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "reciSweEtu0Cg4M8G",
+       "descriptor": "Green/Vegetative",
+       "example": "FlavorActiV “under-ripe fruit\" (acetaldehyde)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：未熟水果（乙醛）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      }
+     ],
+     "name_zh": "青绿"
+    }
+   ]
+  },
+  {
+   "category": "Floral",
+   "category_zh": "花香",
+   "descriptors": [
+    {
+     "name": "Floral",
+     "examples": [
+      {
+       "id": "recE5xDkPzhVjNgTD",
+       "descriptor": "Floral",
+       "example": "Carnation Oil",
+       "prepare": "One drop of oil on a cotton ball; place in a plastic or glass cup and cover.",
+       "brands": "Salvia Carnation Oil, Nature’s Oil Floral Carnation Oil, Young Living/DoTerra Carnation Essential Oil",
+       "source": "English view",
+       "example_zh": "康乃馨精油",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Salvia 康乃馨油、Nature’s Oil 花香康乃馨油、Young Living / doTERRA（多特瑞）康乃馨精油"
+      },
+      {
+       "id": "recFahxX25Fw7ADq7",
+       "descriptor": "Floral",
+       "example": "Le Nez du Café 2.0 - Vial #3: Rose",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 3 号：玫瑰",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recIzQ2d4E9OVySYx",
+       "descriptor": "Floral",
+       "example": "White Grape Juice",
+       "prepare": "Place juice in a plastic or glass cup and cover.",
+       "brands": "Welch’s White Grape Juice",
+       "source": "English view",
+       "example_zh": "白葡萄汁",
+       "prepare_zh": "将果汁倒入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Welch’s（威氏）白葡萄汁"
+      },
+      {
+       "id": "recdKKzJsjkzX5Eng",
+       "descriptor": "Floral",
+       "example": "Jasmine Green Tea",
+       "prepare": "Remove tea from bag, place one tea bag or 1 teaspoon in a plastic or glass cup and cover. Steep for 5 minutes and remove bag.",
+       "brands": "Bigelow Jasmine Green Tea, Twinings Jasmine Green Tea, Numi Jasmine Green Tea, Rika’s classic Te de Jazmin, Pique Green Jasmine Tea",
+       "source": "English view",
+       "example_zh": "茉莉绿茶",
+       "prepare_zh": "将茶叶从茶包中取出：把一个茶包的量或 1 茶匙茶叶放入塑料杯或玻璃杯中并盖好；（若用茶包冲泡）浸泡 5 分钟后取出茶包。",
+       "brands_zh": "Bigelow、Twinings（川宁）、Numi 茉莉绿茶，Rika’s 经典茉莉茶（Te de Jazmín），Pique 茉莉绿茶"
+      },
+      {
+       "id": "recdwLGqgM9xGl0nT",
+       "descriptor": "Floral",
+       "example": "Le Nez du Café 2.0 - Vial #2: Black Tea",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 2 号：红茶",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "receyAUjDfZsMpb0X",
+       "descriptor": "Floral",
+       "example": "Le Nez du Café Revelation – Vial #12: Coffee Blossom",
+       "prepare": "One drop of oil on a cotton ball; place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir “Le Nez du Café” Revelation Edition (36 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 12 号：咖啡花",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "rechjRjrJVoKZKuXW",
+       "descriptor": "Floral",
+       "example": "Le Nez du Café 2.0 - Vial #1: Honey",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 1 号：蜂蜜",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recqjTrYj8ws6A8O2",
+       "descriptor": "Floral",
+       "example": "Scentone T100 – Vial #68",
+       "prepare": "One drop of oil on a cotton ball; place in a plastic or glass cup and cover.",
+       "brands": "“Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 68 号",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "reczj6aYLu8KYQLU3",
+       "descriptor": "Floral",
+       "example": "Le Nez du Café 2.0 - Vial #4: Jasmine",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 4 号：茉莉",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "rec6ZtunUjwawYEw7",
+       "descriptor": "Floral",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #875: Floral (Sweet)",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 875 号：花香（甜）",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      },
+      {
+       "id": "recDxIKlfr4DRmKVR",
+       "descriptor": "Floral",
+       "example": "FlavorActiV “indole”",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：吲哚",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "recYAznYkSFOqhJwc",
+       "descriptor": "Floral",
+       "example": "FlavorActiV “rose/floral\" (geraniol)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：玫瑰/花香（香叶醇）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      }
+     ],
+     "name_zh": "花香"
+    }
+   ]
+  },
+  {
+   "category": "Fruity",
+   "category_zh": "果香",
+   "descriptors": [
+    {
+     "name": "Fruity",
+     "examples": [
+      {
+       "id": "rec5gmGlNhJNCMUeB",
+       "descriptor": "Fruity",
+       "example": "Le Nez du Café 2.0 - Vial #16: Apple",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 16 号：苹果",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recF2rvjCriD2PwLn",
+       "descriptor": "Fruity",
+       "example": "Le Nez du Café Revelation – Vial #17: Apple",
+       "prepare": "One drop of oil on a cotton ball; place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir “Le Nez du Café” Revelation Edition (36 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 17 号：苹果",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "recLOgBdpHiP39wkw",
+       "descriptor": "Fruity",
+       "example": "Le Nez du Café 2.0 - Vial #17: Peach",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 17 号：桃",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recQ4LSXcCr6dtj1z",
+       "descriptor": "Fruity",
+       "example": "Le Nez du Café 2.0 - Vial #14: Melon",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 14 号：甜瓜（哈密瓜类）",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recQf34VhkX9a3vCy",
+       "descriptor": "Fruity",
+       "example": "Le Nez du Café 2.0 - Vial #11: Cherry",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 11 号：樱桃",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recY8jNQjKMqGepaB",
+       "descriptor": "Fruity",
+       "example": "Le Nez du Café 2.0 - Vial #15: Banana",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 15 号：香蕉",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "rechIAT2uhijx5Xud",
+       "descriptor": "Fruity",
+       "example": "Le Nez du Café 2.0 - Vial #7: Black Currant",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 7 号：黑加仑（黑醋栗）",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "reclfUuHQfYf1lHnD",
+       "descriptor": "Fruity",
+       "example": "Apple sauce (puree)",
+       "prepare": "Dilute pure apple puree/sauce on a one-to-one ratio, place in a glass or plastic cup and cover.",
+       "brands": "Gerber, Motts (be mindful of no spices added).",
+       "source": "English view",
+       "example_zh": "苹果酱（苹果泥）",
+       "prepare_zh": "将纯苹果泥/苹果酱按 1:1 加水稀释，放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Gerber（嘉宝）、Mott’s（注意选择未添加香料的产品）"
+      },
+      {
+       "id": "recmZFrDJgDQ9iiPu",
+       "descriptor": "Fruity",
+       "example": "Le Nez du Café 2.0 - Vial #12: Pineapple",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 12 号：菠萝",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recmrjNG7YBauhWoy",
+       "descriptor": "Fruity",
+       "example": "Scentone T100 – Vial #32 – Apple",
+       "prepare": "One drop of oil on a cotton ball; place in a plastic or glass cup and cover.",
+       "brands": "“Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 32 号：苹果",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "recqDG1zGgm5FAwtM",
+       "descriptor": "Fruity",
+       "example": "Kiwi and apple syrups",
+       "prepare": "Blend equal parts of kiwifruit syrup and apple syrups; place in a glass or plastic cup and cover.",
+       "brands": "Monin, Torani, DaVinci Gourmet (be mindful it is plain fruit syrup, with no caramel or butter flavors)",
+       "source": "English view",
+       "example_zh": "猕猴桃与苹果糖浆",
+       "prepare_zh": "将等量的猕猴桃糖浆与苹果糖浆混合，倒入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Monin（莫林）、Torani、DaVinci Gourmet（注意须为纯果味糖浆，不含焦糖或黄油风味）"
+      },
+      {
+       "id": "recs30T9hDbWo8zKB",
+       "descriptor": "Fruity",
+       "example": "Le Nez du Café 2.0 - Vial 13: Mango",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 13 号：芒果",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recsw7b1YdIJIkqs2",
+       "descriptor": "Fruity",
+       "example": "Kiwi-strawberry juice",
+       "prepare": "Place juice in a plastic or glass cup and cover.",
+       "brands": "Juicy-Juice 100% Juice Strawberry-Kiwi",
+       "source": "English view",
+       "example_zh": "猕猴桃草莓汁",
+       "prepare_zh": "将果汁倒入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Juicy Juice 100% 草莓猕猴桃果汁"
+      },
+      {
+       "id": "rec5cuI0fbHUjNWAq",
+       "descriptor": "Fruity",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #312: Stone Fruits",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 312 号：核果",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      },
+      {
+       "id": "rec6jKz8cWkDSWUAQ",
+       "descriptor": "Fruity",
+       "example": "FlavorActiV “coconut\" (whiskey lactone)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：椰子（威士忌内酯）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "recAinVgVZ6cPcYoH",
+       "descriptor": "Fruity",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #141: Banana",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 141 号：香蕉",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      },
+      {
+       "id": "receUE13Bh966NNtl",
+       "descriptor": "Fruity",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #081: Cherry",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 081 号：樱桃",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      },
+      {
+       "id": "reciZNtzUGmCU6jI9",
+       "descriptor": "Fruity",
+       "example": "FlavorActiV “apple\"(ethyl hexanoate)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：苹果（己酸乙酯）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "recmL9HKLM08aMkqk",
+       "descriptor": "Fruity",
+       "example": "FlavorActiV “pineapple\" (ethyl butyrate)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：菠萝（丁酸乙酯）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "recuANKrt1AJNZa4c",
+       "descriptor": "Fruity",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #437: Pineapple",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 437 号：菠萝",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      },
+      {
+       "id": "recv9zptgZO9vmZSo",
+       "descriptor": "Fruity",
+       "example": "FlavorActiV “grape\" (methyl anthranilate)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：葡萄（邻氨基苯甲酸甲酯）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "recx81YRMxyJ1E7sg",
+       "descriptor": "Fruity",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #643: Apple",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 643 号：苹果",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      }
+     ],
+     "name_zh": "果香（综合）"
+    },
+    {
+     "name": "Berry",
+     "examples": [
+      {
+       "id": "rec6kRaOUujp5Yi74",
+       "descriptor": "Berry",
+       "example": "Strawberries",
+       "prepare": "Place all natural strawberries (ripe) in a glass or plastic container at room temperature and cover.",
+       "brands": "Any",
+       "source": "English view",
+       "example_zh": "新鲜草莓",
+       "prepare_zh": "将天然成熟草莓放入玻璃或塑料容器中，室温放置并盖好。",
+       "brands_zh": "任意品牌"
+      },
+      {
+       "id": "recDKUw14ZomvOfbi",
+       "descriptor": "Berry",
+       "example": "Le Nez du Café 2.0 - Vial #6: Blueberry",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 6 号：蓝莓",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recI4eFkhOfwFL40b",
+       "descriptor": "Berry",
+       "example": "Scentone T100 – Vial # 15: Strawberry",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "“Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 15 号：草莓",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "recKNKP9FWdZVFEFV",
+       "descriptor": "Berry",
+       "example": "Le Nez du Café 2.0 - Vial #8: Strawberry",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 8 号：草莓",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recMxZTQY8Ahn7Njx",
+       "descriptor": "Berry",
+       "example": "Le Nez du Vin – Vial #12: Strawberry",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir Le Nez du Vin",
+       "source": "English view",
+       "example_zh": "Le Nez du Vin 葡萄酒闻香瓶 第 12 号：草莓",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Vin》葡萄酒闻香瓶"
+      },
+      {
+       "id": "recNkkNqwbQKgBppG",
+       "descriptor": "Berry",
+       "example": "Raspberry syrup",
+       "prepare": "Place in a glass or plastic cup and cover.",
+       "brands": "Monin, Torani, DaVinci Gourmet",
+       "source": "English view",
+       "example_zh": "覆盆子（树莓）糖浆",
+       "prepare_zh": "放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Monin（莫林）、Torani、DaVinci Gourmet"
+      },
+      {
+       "id": "recTrjxCGu54Fg9b5",
+       "descriptor": "Berry",
+       "example": "Strawberry syrup",
+       "prepare": "Place in a glass or plastic cup and cover.",
+       "brands": "Monin, Torani, DaVinci Gourmet",
+       "source": "English view",
+       "example_zh": "草莓糖浆",
+       "prepare_zh": "放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Monin（莫林）、Torani、DaVinci Gourmet"
+      },
+      {
+       "id": "recfkTLE6KjsG6Srj",
+       "descriptor": "Berry",
+       "example": "Blackberry syrup",
+       "prepare": "Place in a glass or plastic cup and cover.",
+       "brands": "Monin, Torani, DaVinci Gourmet",
+       "source": "English view",
+       "example_zh": "黑莓糖浆",
+       "prepare_zh": "放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Monin（莫林）、Torani、DaVinci Gourmet"
+      },
+      {
+       "id": "recswnyAwNEG2SpDz",
+       "descriptor": "Berry",
+       "example": "Le Nez du Café 2.0 - Vial #5: Raspberry",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 5 号：覆盆子（树莓）",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      }
+     ],
+     "name_zh": "莓果"
+    },
+    {
+     "name": "Dried Fruit",
+     "examples": [
+      {
+       "id": "recAbsOf9IifCCs8W",
+       "descriptor": "Dried Fruit",
+       "example": "Le Nez du Café 2.0: Vial #9: Raisin",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 9 号：葡萄干",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recIqab9jLrLzFERk",
+       "descriptor": "Dried Fruit",
+       "example": "Le Nez du Café 2.0 - Vial #10: Prune",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 10 号：西梅（李子干）",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recPBy1cwMJLnfeQm",
+       "descriptor": "Dried Fruit",
+       "example": "Raisins and Prunes",
+       "prepare": "¼ cup dry raisins and ¼ cup dry prunes chopped. Add ¾ cup water and cook in microwave on high for 2 minutes. Filter liquid with sieve. Place in a glass or plastic cup and cover.",
+       "brands": "Sun-Maid",
+       "source": "English view",
+       "example_zh": "葡萄干与西梅干",
+       "prepare_zh": "取 ¼ 杯葡萄干和 ¼ 杯切碎的西梅干，加入 ¾ 杯水，微波炉高火加热 2 分钟。用滤网滤出汁液，倒入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Sun-Maid（新美）"
+      },
+      {
+       "id": "recc9MTbylOPj2FSm",
+       "descriptor": "Dried Fruit",
+       "example": "Prune Juice",
+       "prepare": "Dilute 1 part juice to 2 parts water. Bring to room temperature for serving. Place in a glass or plastic cup and cover.",
+       "brands": "Sunsweet",
+       "source": "English view",
+       "example_zh": "西梅汁",
+       "prepare_zh": "按 1 份果汁兑 2 份水稀释，回温至室温后使用。倒入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Sunsweet（日光牌）"
+      }
+     ],
+     "name_zh": "果干"
+    },
+    {
+     "name": "Citrus Fruit",
+     "examples": [
+      {
+       "id": "rec8DhH5VVMkHDV0f",
+       "descriptor": "Citrus Fruit",
+       "example": "Scentone T100 – Vial # 28: Lime",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "“Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 28 号：青柠（莱姆）",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "rec9ABJ1sUgfF43nN",
+       "descriptor": "Citrus Fruit",
+       "example": "Le Nez du Café Revelation – Vial # 15: Lemon",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir “Le Nez du Café” Revelation Edition (36 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 15 号：柠檬",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "rec9QKOkEYe4AtTec",
+       "descriptor": "Citrus Fruit",
+       "example": "Le Nez du Café 2.0 - Vial #20: Lime",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 20 号：青柠（莱姆）",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recHy4aBlTbju6zAS",
+       "descriptor": "Citrus Fruit",
+       "example": "Le Nez du Café 2.0 - Vial #19: Lemon",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 19 号：柠檬",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recYGroWUMYtWpyr0",
+       "descriptor": "Citrus Fruit",
+       "example": "Scentone T100 – Vial # 26: Lemon",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "“Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 26 号：柠檬",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "receVQKHfy4i2GKuA",
+       "descriptor": "Citrus Fruit",
+       "example": "Lime syrup",
+       "prepare": "Place in a glass or plastic cup and cover.",
+       "brands": "Monin, Torani, DaVinci Gourmet",
+       "source": "English view",
+       "example_zh": "青柠（莱姆）糖浆",
+       "prepare_zh": "放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Monin（莫林）、Torani、DaVinci Gourmet"
+      },
+      {
+       "id": "recevrDNss8XyvfWH",
+       "descriptor": "Citrus Fruit",
+       "example": "Peels of Lemon and Lime",
+       "prepare": "Place 0.5 grams of lemon peel and 0.5 grams of lime peel in a plastic or glass cup and cover.",
+       "brands": "",
+       "source": "English view",
+       "example_zh": "柠檬皮与青柠皮",
+       "prepare_zh": "将 0.5 克柠檬皮与 0.5 克青柠皮放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": ""
+      },
+      {
+       "id": "recfRFKuqdGzgdjz7",
+       "descriptor": "Citrus Fruit",
+       "example": "Citrus oils/Lemon oil",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Salvia Oil, Nature’s Oil, Young Living/DoTerra Citrus or Lemon Essential Oil",
+       "source": "English view",
+       "example_zh": "柑橘精油/柠檬精油",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Salvia、Nature’s Oil、Young Living / doTERRA（多特瑞）柑橘或柠檬精油"
+      },
+      {
+       "id": "reciwFeJphI7UDApV",
+       "descriptor": "Citrus Fruit",
+       "example": "Lemon syrup",
+       "prepare": "Place in a glass or plastic cup and cover.",
+       "brands": "Monin, Torani, DaVinci Gourmet",
+       "source": "English view",
+       "example_zh": "柠檬糖浆",
+       "prepare_zh": "放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Monin（莫林）、Torani、DaVinci Gourmet"
+      },
+      {
+       "id": "recwaQlXfCvxPU7ul",
+       "descriptor": "Citrus Fruit",
+       "example": "Le Nez du Café 2.0 - Vial #18: Orange",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 18 号：橙",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "rec1mjF3ldURjoAoV",
+       "descriptor": "Citrus Fruit",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #189: Lemon",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 189 号：柠檬",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      },
+      {
+       "id": "recEUwLzSoDdF76Jb",
+       "descriptor": "Citrus Fruit",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #917: Orange",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 917 号：橙",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      }
+     ],
+     "name_zh": "柑橘类水果"
+    }
+   ]
+  },
+  {
+   "category": "Sour/Fermented",
+   "category_zh": "酸/发酵",
+   "descriptors": [
+    {
+     "name": "Sour",
+     "examples": [
+      {
+       "id": "reclV98xKvnCVm0Fl",
+       "descriptor": "Sour",
+       "example": "5% Acetic Acid Solution",
+       "prepare": "Place in a glass or plastic cup and cover.",
+       "brands": "",
+       "source": "English view",
+       "example_zh": "5% 乙酸（醋酸）溶液",
+       "prepare_zh": "放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": ""
+      },
+      {
+       "id": "recmAnjvfgkloqudl",
+       "descriptor": "Sour",
+       "example": "Le Nez du Café 2.0 - Vial #21: Butyric Acid",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 21 号：丁酸",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recx5QpjwUhZakMV4",
+       "descriptor": "Sour",
+       "example": "White Vinegar",
+       "prepare": "Place in a glass or plastic cup and cover.",
+       "brands": "Heinz Distilled White Vinegar",
+       "source": "English view",
+       "example_zh": "白醋",
+       "prepare_zh": "放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Heinz（亨氏）蒸馏白醋"
+      },
+      {
+       "id": "recJpeHuaJiJsj7em",
+       "descriptor": "Sour",
+       "example": "FlavorActiV “butyric\" (butyric acid)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：丁酸味（丁酸）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "recLG0o9A8iKIHLHu",
+       "descriptor": "Sour",
+       "example": "FlavorActiV “isovaleric (cheese)\" (isovaleric acid)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：异戊酸（奶酪）（异戊酸）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "recaBlKEI1fnxCAPW",
+       "descriptor": "Sour",
+       "example": "FlavorActiV “acetic\" (acetic acid)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：乙酸味（乙酸）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      }
+     ],
+     "name_zh": "酸"
+    },
+    {
+     "name": "Fermented",
+     "examples": [
+      {
+       "id": "rec8pt5aLwxeZUMMB",
+       "descriptor": "Fermented",
+       "example": "Le Nez du Café 2.0 - Vial #23: Coffee Pulp",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 23 号：咖啡果肉",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recCyYw1z3Z24NWgx",
+       "descriptor": "Fermented",
+       "example": "Le Nez du Café 2.0 - Vial #22: Winey",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 22 号：酒香",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recQ5tcoTyWXGHnpa",
+       "descriptor": "Fermented",
+       "example": "Beer",
+       "prepare": "Place in a glass or plastic cup and cover.",
+       "brands": "Guinness, or a stout or similar beer without hop aroma",
+       "source": "English view",
+       "example_zh": "啤酒",
+       "prepare_zh": "放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Guinness（健力士），或其他无酒花香气的世涛（Stout）或类似啤酒"
+      },
+      {
+       "id": "reckcSfPAF7DIRalA",
+       "descriptor": "Fermented",
+       "example": "Fermented grass",
+       "prepare": "Fill 2-ounce glass jars half full with grass and seal tightly with screw-on lids. Leave in airtight container for 2 weeks to ferment. Serve in jar.",
+       "brands": "",
+       "source": "English view",
+       "example_zh": "发酵青草",
+       "prepare_zh": "在 2 盎司（约 60 毫升）玻璃罐中装入半罐青草，拧紧螺旋盖密封。在密闭状态下放置 2 周使其发酵，直接以罐呈样。",
+       "brands_zh": ""
+      },
+      {
+       "id": "recqkPA4rT3i106tT",
+       "descriptor": "Fermented",
+       "example": "FlavorActiV \"fermented\" (ethyl isovalerate)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：发酵（异戊酸乙酯）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      }
+     ],
+     "name_zh": "发酵"
+    }
+   ]
+  },
+  {
+   "category": "Spice",
+   "category_zh": "香料",
+   "descriptors": [
+    {
+     "name": "Spice",
+     "examples": [
+      {
+       "id": "rec3rKXvqZYtRf1a3",
+       "descriptor": "Spice",
+       "example": "Pumpkin spice syrup",
+       "prepare": "Place in a glass or plastic cup and cover.",
+       "brands": "Monin, Torani, DaVinci Gourmet",
+       "source": "English view",
+       "example_zh": "南瓜香料糖浆",
+       "prepare_zh": "放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Monin（莫林）、Torani、DaVinci Gourmet"
+      },
+      {
+       "id": "recC1eAQdsQB8Mkxd",
+       "descriptor": "Spice",
+       "example": "Scentone T100 – Vial #79: Clove",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "\"Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 79 号：丁香",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "recDXtfB9cxU8jOWg",
+       "descriptor": "Spice",
+       "example": "Le Nez du Vin – Vial #42: Clove",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir Le Nez du Vin",
+       "source": "English view",
+       "example_zh": "Le Nez du Vin 葡萄酒闻香瓶 第 42 号：丁香",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Vin》葡萄酒闻香瓶"
+      },
+      {
+       "id": "recPNdt2bBcyrjs0x",
+       "descriptor": "Spice",
+       "example": "Le Nez du Café 2.0 - Vial #46: Pepper",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 46 号：胡椒",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recWwquYnLT1CACyx",
+       "descriptor": "Spice",
+       "example": "Le Nez du Vin – Vial #41: Cinnamon",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir Le Nez du Vin",
+       "source": "English view",
+       "example_zh": "Le Nez du Vin 葡萄酒闻香瓶 第 41 号：肉桂",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Vin》葡萄酒闻香瓶"
+      },
+      {
+       "id": "recbvogQnZCNZFwfz",
+       "descriptor": "Spice",
+       "example": "Spices",
+       "prepare": "Mix 0.25 gr ground cinnamon + 0.25 gr ground allspice + 0.25 gr ground nutmeg + 0.06 gr ground clove. Serve ¼ teaspoon of mixture in a glass or plastic cup. Cover.",
+       "brands": "",
+       "source": "English view",
+       "example_zh": "混合香料",
+       "prepare_zh": "将 0.25 克肉桂粉、0.25 克多香果粉、0.25 克肉豆蔻粉与 0.06 克丁香粉混合。取 ¼ 茶匙混合物放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": ""
+      },
+      {
+       "id": "recdbbZZNqhtPmnA4",
+       "descriptor": "Spice",
+       "example": "Le Nez du Café 2.0 - Vial #47: (Star) Anise",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 47 号：（八角）茴香",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "reci5RtSPe6sm09C7",
+       "descriptor": "Spice",
+       "example": "Le Nez du Café 2.0 - Vial #48: Nutmeg",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 48 号：肉豆蔻",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recpO5TeLrExYUmZ1",
+       "descriptor": "Spice",
+       "example": "Le Nez du Café 2.0 - Vial #50: Clove",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 50 号：丁香",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recq8I67eZH2WiHht",
+       "descriptor": "Spice",
+       "example": "Scentone T100 – Vial #76: Cinnamon",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "\"Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 76 号：肉桂",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "recsMrgndsTGfEWg5",
+       "descriptor": "Spice",
+       "example": "Le Nez du Café 2.0 - Vial #49: Cinnamon",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 49 号：肉桂",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "rec00K6AHTTqqL9if",
+       "descriptor": "Spice",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #283: Cloves",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 283 号：丁香",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      },
+      {
+       "id": "rec9PMe1hMpXLvitl",
+       "descriptor": "Spice",
+       "example": "FlavorActiV “phenolic\" [cloves-like] (4-vinyl guiacol)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：酚味（类丁香）（4-乙烯基愈创木酚）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      }
+     ],
+     "name_zh": "香料"
+    }
+   ]
+  },
+  {
+   "category": "Sweet",
+   "category_zh": "甜",
+   "descriptors": [
+    {
+     "name": "Brown Sugar",
+     "examples": [
+      {
+       "id": "rec1qAQyy2CKnFpA1",
+       "descriptor": "Brown Sugar",
+       "example": "Le Nez du Café 2.0 - Vial #58: Maple Syrup",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 58 号：枫糖浆",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "rec2U1hhNPCDPC7Kf",
+       "descriptor": "Brown Sugar",
+       "example": "Scentone T100 – Vial #51, Caramel",
+       "prepare": "One drop of oil on a cotton ball; place in a plastic or glass cup and cover.",
+       "brands": "“Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 51 号：焦糖",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "recFfvm0I0ZfCu0y6",
+       "descriptor": "Brown Sugar",
+       "example": "Le Nez du Café 2.0 - Vial #57: Brown Sugar",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 57 号：红糖",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recUCipp1HIIRhTNG",
+       "descriptor": "Brown Sugar",
+       "example": "Le Nez du Café Revelation – Vial #25, Caramel",
+       "prepare": "One drop of oil on a cotton ball; place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 25 号：焦糖",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "recYZC64hl0s696BB",
+       "descriptor": "Brown Sugar",
+       "example": "Le Nez du Café 2.0 - Vial #59: Caramelized",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 59 号：焦糖化",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "reccGboqUwwOe0SYF",
+       "descriptor": "Brown Sugar",
+       "example": "Scentone T100 – Vial #52, Brown Sugar",
+       "prepare": "One drop of oil on a cotton ball; place in a plastic or glass cup and cover.",
+       "brands": "“Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 52 号：红糖",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "reciMKrOoSZycnlJr",
+       "descriptor": "Brown Sugar",
+       "example": "Caramel syrup",
+       "prepare": "Place in a glass or plastic cup and cover.",
+       "brands": "Monin, Torani, DaVinci Gourmet",
+       "source": "English view",
+       "example_zh": "焦糖糖浆",
+       "prepare_zh": "放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Monin（莫林）、Torani、DaVinci Gourmet"
+      },
+      {
+       "id": "recpVeOOItyi2en0N",
+       "descriptor": "Brown Sugar",
+       "example": "Brown Sugar (Muscovado, Turbinado)",
+       "prepare": "Place one teaspoon brown sugar in a glass or cup and cover.",
+       "brands": "C&H Light Brown Sugar",
+       "source": "English view",
+       "example_zh": "红糖/黄糖（Muscovado 黑糖、Turbinado 粗粒原糖）",
+       "prepare_zh": "取一茶匙红糖放入玻璃杯或杯中并盖好。",
+       "brands_zh": "C&H 浅色红糖（Light Brown Sugar）"
+      },
+      {
+       "id": "recSm8o7WFQqgzKXe",
+       "descriptor": "Brown Sugar",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #594: Caramelized Sugar",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 594 号：焦糖化糖",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      }
+     ],
+     "name_zh": "红糖/黄糖"
+    },
+    {
+     "name": "Vanilla/Vanillin",
+     "examples": [
+      {
+       "id": "recOLzA317EB3uDUu",
+       "descriptor": "Vanilla/Vanillin",
+       "example": "Le Nez du Café 2.0 - Vial #60: Vanilla",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 60 号：香草",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recOp23KrE7jLzVU5",
+       "descriptor": "Vanilla/Vanillin",
+       "example": "Le Nez du Café Revelation – Vial #10, Vanilla",
+       "prepare": "One drop of oil on a cotton ball; place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 10 号：香草",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "recPxFfI6gTeezzPF",
+       "descriptor": "Vanilla/Vanillin",
+       "example": "Vanilla Extract",
+       "prepare": "Place a few drops essence on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "McCormick or other pure vanilla extract",
+       "source": "English view",
+       "example_zh": "香草精（香草萃取液）",
+       "prepare_zh": "将几滴香精滴在棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "McCormick（味好美）或其他纯香草精"
+      },
+      {
+       "id": "recfNXxs9N7jSxpG1",
+       "descriptor": "Vanilla/Vanillin",
+       "example": "Scentone T100 – Vial #77, Vanilla",
+       "prepare": "One drop of oil on a cotton ball; place in a plastic or glass cup and cover.",
+       "brands": "“Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 77 号：香草",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "recuI1hxkIr7SUTr3",
+       "descriptor": "Vanilla/Vanillin",
+       "example": "Vanilla syrup",
+       "prepare": "Place in a glass or plastic cup and cover.",
+       "brands": "Monin, Torani, DaVinci Gourmet",
+       "source": "English view",
+       "example_zh": "香草糖浆",
+       "prepare_zh": "放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Monin（莫林）、Torani、DaVinci Gourmet"
+      },
+      {
+       "id": "recByFsgxdv3DjzfQ",
+       "descriptor": "Vanilla/Vanillin",
+       "example": "FlavorActiV “vanilla\" (vanillin)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：香草（香兰素）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "reccSSmRmQYqMtyWG",
+       "descriptor": "Vanilla/Vanillin",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #121: Vanilla",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 121 号：香草",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      }
+     ],
+     "name_zh": "香草/香兰素"
+    }
+   ]
+  },
+  {
+   "category": "Nutty",
+   "category_zh": "坚果",
+   "descriptors": [
+    {
+     "name": "Nutty",
+     "examples": [
+      {
+       "id": "rec1NWgABiph8flvz",
+       "descriptor": "Nutty",
+       "example": "Le Nez du Café 2.0 - Vial #52: Hazelnut",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 52 号：榛子",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recMf1bfZcStzzlSF",
+       "descriptor": "Nutty",
+       "example": "Le Nez du Café 2.0 - Vial #53: Almond",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 53 号：杏仁（扁桃仁）",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recQoZRoixY9GRLMJ",
+       "descriptor": "Nutty",
+       "example": "Roasted hazelnuts",
+       "prepare": "Place roasted hazelnuts in a glass or plastic cup and cover.",
+       "brands": "",
+       "source": "English view",
+       "example_zh": "烤榛子",
+       "prepare_zh": "将烤榛子放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": ""
+      },
+      {
+       "id": "recUMM6w8lE1nIxiF",
+       "descriptor": "Nutty",
+       "example": "Almond syrup",
+       "prepare": "Place in a glass or plastic cup and cover.",
+       "brands": "Monin, Torani, DaVinci Gourmet",
+       "source": "English view",
+       "example_zh": "杏仁糖浆",
+       "prepare_zh": "放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Monin（莫林）、Torani、DaVinci Gourmet"
+      },
+      {
+       "id": "recWEiYTvdRWiScFW",
+       "descriptor": "Nutty",
+       "example": "Le Nez du Café 2.0 - Vial #54: Walnut",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 54 号：核桃",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "reccI5S1ybPsdkwzP",
+       "descriptor": "Nutty",
+       "example": "Le Nez du Café Revelation – Vial # 29: Roasted Hazelnut",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 29 号：烤榛子",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "reccr60tc6hKPE71Z",
+       "descriptor": "Nutty",
+       "example": "Le Nez du Café 2.0 - Vial #51: Peanut",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 51 号：花生",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recttyzGU9ZeET9MM",
+       "descriptor": "Nutty",
+       "example": "Scentone T100 – Vial #40, Hazelnut",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 40 号：榛子",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "recwa0bHhDbKAbQwM",
+       "descriptor": "Nutty",
+       "example": "Almonds and Walnuts, chopped",
+       "prepare": "Chop the almonds and walnuts separately in blenders for 45 seconds. Combine equal amounts of the chopped nuts. Put approx. 30 g. in a plastic or glass cup, cover.",
+       "brands": "Diamond sliced almonds, Diamond shelled walnuts",
+       "source": "English view",
+       "example_zh": "切碎的杏仁与核桃",
+       "prepare_zh": "用搅拌机将杏仁和核桃分别打碎 45 秒，再将等量碎坚果混合。取约 30 克放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Diamond 杏仁片、Diamond 去壳核桃"
+      },
+      {
+       "id": "recDBekXRxsmnjuJH",
+       "descriptor": "Nutty",
+       "example": "FlavorActiV “almond\" (benzaldehyde)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：杏仁（苯甲醛）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "recxflnxbN30kXkw5",
+       "descriptor": "Nutty",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #632: Roasted Hazelnuts",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 632 号：烤榛子",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      }
+     ],
+     "name_zh": "坚果"
+    }
+   ]
+  },
+  {
+   "category": "Cocoa",
+   "category_zh": "可可",
+   "descriptors": [
+    {
+     "name": "Cocoa",
+     "examples": [
+      {
+       "id": "rec1ovspCIKi40K2u",
+       "descriptor": "Cocoa",
+       "example": "Le Nez du Café 2.0 - Vial #56: Chocolate",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 56 号：巧克力",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recBBpk753baLQDNZ",
+       "descriptor": "Cocoa",
+       "example": "Le Nez du Café 2.0 - Vial #55: Dark Chocolate",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 55 号：黑巧克力",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recSO7zkf8WDUV6vo",
+       "descriptor": "Cocoa",
+       "example": "Scentone T100 – Vial #56: Dark Chocolate",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 56 号：黑巧克力",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "reccER4jYpJyhV0Rg",
+       "descriptor": "Cocoa",
+       "example": "Natural unsweetened cocoa powder",
+       "prepare": "Mix ¼ teaspoon with 100mL water in a glass or plastic container, cover.",
+       "brands": "Hershey’s Cocoa Powder",
+       "source": "English view",
+       "example_zh": "天然无糖可可粉",
+       "prepare_zh": "取 ¼ 茶匙与 100 毫升水在玻璃或塑料容器中混合，盖好。",
+       "brands_zh": "Hershey’s（好时）可可粉"
+      },
+      {
+       "id": "recgB3PV02Nmzz1lp",
+       "descriptor": "Cocoa",
+       "example": "Le Nez du Café Revelation – Vial #26: Dark Chocolate",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 26 号：黑巧克力",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "rec4dBXBLNylCVa7F",
+       "descriptor": "Cocoa",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #292: Chocolate",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 292 号：巧克力",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      }
+     ],
+     "name_zh": "可可"
+    }
+   ]
+  },
+  {
+   "category": "Roasted",
+   "category_zh": "烘焙",
+   "descriptors": [
+    {
+     "name": "Roasted",
+     "examples": [
+      {
+       "id": "recL9w1H1q0K0OHrp",
+       "descriptor": "Roasted",
+       "example": "Le Nez du Café Revelation – Vial # 34: Roasted coffee",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 34 号：烘焙咖啡",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "recRw3AwlAzj1m26g",
+       "descriptor": "Roasted",
+       "example": "Dark Roasted Coffee (Agtron #35)",
+       "prepare": "Place ground coffee in a plastic or glass cup and cover.",
+       "brands": "",
+       "source": "English view",
+       "example_zh": "深烘咖啡（Agtron #35）",
+       "prepare_zh": "将咖啡粉放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": ""
+      },
+      {
+       "id": "recYUC3sVTgTu7wMu",
+       "descriptor": "Roasted",
+       "example": "Scentone T100 – Vial #50, Roasted Coffee Bean",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "\"Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 50 号：烘焙咖啡豆",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      }
+     ],
+     "name_zh": "烘焙（综合）"
+    },
+    {
+     "name": "Cereal",
+     "examples": [
+      {
+       "id": "rec0SrdzKTSeo42bX",
+       "descriptor": "Cereal",
+       "example": "Le Nez du Café Revelation – Vial # 23: Malt",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 23 号：麦芽",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "rec1KJNwSjxaDrRMd",
+       "descriptor": "Cereal",
+       "example": "Le Nez du Café Revelation – Vial # 22: Toast",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 22 号：烤吐司",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "rec4e3RQDbpYGpxuk",
+       "descriptor": "Cereal",
+       "example": "Le Nez du Café 2.0 - Vial #45: Malt",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 45 号：麦芽",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recAMo4EIlxqBalvM",
+       "descriptor": "Cereal",
+       "example": "Mix of breakfast cereals",
+       "prepare": "Mix equal parts of puffed rice, corn flakes and oat breakfast cereals. Put in a blender and “pulse” blend into small particles. Place 1 tablespoon in a medium snifter. Cover.",
+       "brands": "General Mills, Kellogg’s, Nestlé",
+       "source": "English view",
+       "example_zh": "混合早餐谷物",
+       "prepare_zh": "将等量的膨化米、玉米片和燕麦早餐谷物混合，放入搅拌机以“点动”方式打成小颗粒。取 1 汤匙放入中号闻香杯（白兰地杯）中并盖好。",
+       "brands_zh": "General Mills（通用磨坊）、Kellogg’s（家乐氏）、Nestlé（雀巢）"
+      },
+      {
+       "id": "reckq07gCvHZCi74b",
+       "descriptor": "Cereal",
+       "example": "Scentone T100 – Vial #48, Malt",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "\"Scentone” T100",
+       "source": "English view",
+       "example_zh": "Scentone T100 闻香瓶 第 48 号：麦芽",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "recubFs3in2j1go3G",
+       "descriptor": "Cereal",
+       "example": "Le Nez du Café 2.0 - Vial #44: Toast",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "English view",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 44 号：烤吐司",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recY1VtJOUyt2VD5I",
+       "descriptor": "Cereal",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #104: Cereal",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 104 号：谷物",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      }
+     ],
+     "name_zh": "谷物"
+    },
+    {
+     "name": "Burnt",
+     "examples": [
+      {
+       "id": "reclo0dX1cv8HrCbA",
+       "descriptor": "Burnt",
+       "example": "Burnt peanuts",
+       "prepare": "Preheat oven to 220°C. Place raw, blanched peanuts in a single layer on a baking sheet lined with parchment paper. Roast for 20 minutes. Peanuts will be burnt. Place 1 tablespoon in a medium snifter. Cover.",
+       "brands": "",
+       "source": "English view",
+       "example_zh": "烤焦的花生",
+       "prepare_zh": "烤箱预热至 220°C。将生的去皮花生单层平铺在垫有烘焙纸的烤盘上，烘烤 20 分钟，花生会烤焦。取 1 汤匙放入中号闻香杯（白兰地杯）中并盖好。",
+       "brands_zh": ""
+      },
+      {
+       "id": "recsT1BfIDRitj55r",
+       "descriptor": "Burnt",
+       "example": "Scentone T100 – Vial #49: Burnt Rice",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Scentone T100",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Scentone T100 闻香瓶 第 49 号：焦米",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "recsVoj3MZdsmued8",
+       "descriptor": "Burnt",
+       "example": "Le Nez du Café 2.0 - Vial #42: Smoky",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 42 号：烟熏",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      }
+     ],
+     "name_zh": "焦糊"
+    },
+    {
+     "name": "Tobacco",
+     "examples": [
+      {
+       "id": "recsXqVjnIG71NZmi",
+       "descriptor": "Tobacco",
+       "example": "Cigarettes",
+       "prepare": "Tear open a cigarette; place 0.1 g of tobacco in a medium snifter and cover.",
+       "brands": "Camel (Turkish and Domestic blends), Marlboro, Pall Mall",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "香烟",
+       "prepare_zh": "撕开香烟，取 0.1 克烟丝放入中号闻香杯（白兰地杯）中并盖好。",
+       "brands_zh": "Camel（骆驼，土耳其与美式混合型）、Marlboro（万宝路）、Pall Mall（长红）"
+      },
+      {
+       "id": "recsklC5C9YaCPm1l",
+       "descriptor": "Tobacco",
+       "example": "Le Nez du Café Revelation – Vial #33: Pipe Tobacco",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 33 号：烟斗烟草",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "rect3qe9K1PbvWzey",
+       "descriptor": "Tobacco",
+       "example": "Le Nez du Café 2.0 - Vial #41: Tobacco",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 41 号：烟草",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      }
+     ],
+     "name_zh": "烟草"
+    }
+   ]
+  },
+  {
+   "category": "Other",
+   "category_zh": "其他",
+   "descriptors": [
+    {
+     "name": "Other",
+     "examples": [
+      {
+       "id": "recDvORWNpUGpwnW9",
+       "descriptor": "Other",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #619",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 619 号",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      }
+     ],
+     "name_zh": "其他（综合）"
+    },
+    {
+     "name": "Chemical",
+     "examples": [
+      {
+       "id": "rec4jItLVHC4g5tIo",
+       "descriptor": "Chemical",
+       "example": "FlavorActiV “diesel/motor fuel\" (p-cymene)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：柴油/机油（对伞花烃）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "recRvYNNQpr0XybbV",
+       "descriptor": "Chemical",
+       "example": "The Coffee Sensorium Flavour Kit - Vial #075: Rubber",
+       "prepare": "Option 1: Sniff directly from vial. Option 2: 4 drops in 20 mL water. Option 3: Follow package instructions.",
+       "brands": "Coffee Flavour Kit, by The Coffee Sensorium , in collaboration with the Federal University of Minas Gerais (UFMG)",
+       "source": "English view",
+       "example_zh": "The Coffee Sensorium 风味套组 第 075 号：橡胶",
+       "prepare_zh": "方法一：直接对瓶闻嗅。方法二：取 4 滴加入 20 毫升水中。方法三：按包装说明操作。",
+       "brands_zh": "The Coffee Sensorium 咖啡风味套组（与巴西米纳斯吉拉斯联邦大学 UFMG 合作开发）"
+      },
+      {
+       "id": "receCT7Hn1rVk3gy8",
+       "descriptor": "Chemical",
+       "example": "FlavorActiV “medicinal (o-cresol)\" (Methyl Phenol)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：药味（邻甲酚）（甲基苯酚）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "rec7F6QHOV1yQjAgj",
+       "descriptor": "Chemical",
+       "example": "Adhesive bandage",
+       "prepare": "Place one plastic or adhesive bandage in glass or plastic cup and cover.",
+       "brands": "Band-Aid",
+       "source": "English view",
+       "example_zh": "创可贴",
+       "prepare_zh": "将一片塑料创可贴放入玻璃杯或塑料杯中并盖好。",
+       "brands_zh": "Band-Aid（邦迪）"
+      },
+      {
+       "id": "recsp8oZu8UEoqnbD",
+       "descriptor": "Chemical",
+       "example": "Iodine",
+       "prepare": "Place ¼ cup iodine in a covered glass or plastic cup.",
+       "brands": "",
+       "source": "English view",
+       "example_zh": "碘酒（碘酊）",
+       "prepare_zh": "将 ¼ 杯碘酒倒入带盖的玻璃杯或塑料杯中。",
+       "brands_zh": ""
+      },
+      {
+       "id": "recteQTi7Nwn7pQIf",
+       "descriptor": "Chemical",
+       "example": "Le Nez du Café 2.0 - Vial #38: Medicinal",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 38 号：药味",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recu8ZvDLPeL85t2g",
+       "descriptor": "Chemical",
+       "example": "Le Nez du Café 2.0 - Vial #29: Tar",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 29 号：焦油",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recvCjuAfMU3zqAGZ",
+       "descriptor": "Chemical",
+       "example": "Le Nez du Café 2.0 - Vial #40: Rubber",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 40 号：橡胶",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recvP9lksPti2IlqL",
+       "descriptor": "Chemical",
+       "example": "Le Nez du Café Revelation – Vial #35: Medicinal",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 35 号：药味",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      }
+     ],
+     "name_zh": "化学"
+    },
+    {
+     "name": "Musty/Earthy",
+     "examples": [
+      {
+       "id": "recdk6a8r0D4hVSNn",
+       "descriptor": "Musty/Earthy",
+       "example": "FlavorActiV “moldy-damp\" (2, 4, 6 trichloroanisole)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：霉味/潮湿（2,4,6-三氯苯甲醚（TCA））",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "rech7OKDB0UWLbdy1",
+       "descriptor": "Musty/Earthy",
+       "example": "FlavorActiV “dry earth\" (geosmin)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：干土（土臭素）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "rectUpUQh8HVL3XQd",
+       "descriptor": "Musty/Earthy",
+       "example": "FlavorActiV “wet earthy\" (2-ethyl fenchol)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：湿土（2-乙基葑醇）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "rec7VAxxasH7c2SkF",
+       "descriptor": "Musty/Earthy",
+       "example": "Commercial Potting Soil",
+       "prepare": "Put 20g potting soil in a plastic or glass cup, cover.",
+       "brands": "",
+       "source": "English view",
+       "example_zh": "市售盆栽营养土",
+       "prepare_zh": "取 20 克盆栽营养土放入塑料杯或玻璃杯中，盖好。",
+       "brands_zh": ""
+      },
+      {
+       "id": "recw2reOi8rN1MbDZ",
+       "descriptor": "Musty/Earthy",
+       "example": "Le Nez du Café Revelation – Vial #1: Earth",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 1 号：泥土",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "recw7k1D0ds9H2a47",
+       "descriptor": "Musty/Earthy",
+       "example": "Scentone T100 – Vial #92: Mushroom",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Scentone T100",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Scentone T100 闻香瓶 第 92 号：蘑菇",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Scentone T100"
+      },
+      {
+       "id": "recw7xZ61yKVwz5L7",
+       "descriptor": "Musty/Earthy",
+       "example": "Le Nez du Café 2.0 - Vial #35: Moldy/Damp",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 35 号：霉味/潮湿",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recwc3NBKP2MOHqtC",
+       "descriptor": "Musty/Earthy",
+       "example": "Le Nez du Café 2.0 - Vial #36: Musty/Earthy",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 36 号：霉味/土壤",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "recwdO2NJdI65EqXH",
+       "descriptor": "Musty/Earthy",
+       "example": "Le Nez du Café 2.0 - Vial #37: Leather",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 37 号：皮革",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      }
+     ],
+     "name_zh": "霉味土壤"
+    },
+    {
+     "name": "Woody",
+     "examples": [
+      {
+       "id": "rec11hwPdbOSiG4yq",
+       "descriptor": "Woody",
+       "example": "FlavorActiV “papery\"(trans-2-nonenal)",
+       "prepare": "Prepare according to FlavorActiV package instructions.",
+       "brands": "FlavorActiv",
+       "source": "English view",
+       "example_zh": "FlavorActiV 标准品：纸味（反-2-壬烯醛）",
+       "prepare_zh": "按照 FlavorActiV 包装说明配制。",
+       "brands_zh": "FlavorActiV"
+      },
+      {
+       "id": "receUJnS6c5gqkCKK",
+       "descriptor": "Woody",
+       "example": "Popsicle sticks",
+       "prepare": "Break popsicle sticks to fit in sample cups of any size. Cover with a plastic lid. This may be prepared in advance.",
+       "brands": "",
+       "source": "English view",
+       "example_zh": "冰棍棒（木制雪糕棍）",
+       "prepare_zh": "将冰棍棒折断，使其能放入任意尺寸的样品杯中，盖上塑料盖。可提前备好。",
+       "brands_zh": ""
+      },
+      {
+       "id": "recyYAtvV2NSg7Cu2",
+       "descriptor": "Woody",
+       "example": "Le Nez du Café Revelation – Vial #6: Cedar",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe, Revelation Edition (36 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café Revelation 闻香瓶（36味）第 6 号：雪松",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café》Revelation 版（36 味）"
+      },
+      {
+       "id": "recz201WbFjLHfceg",
+       "descriptor": "Woody",
+       "example": "Le Nez du Café 2.0 - Vial #33: Cardboard",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 33 号：纸板",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      },
+      {
+       "id": "reczO0czvLnC733kk",
+       "descriptor": "Woody",
+       "example": "Le Nez du Café 2.0 - Vial #34: Woody",
+       "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
+       "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
+       "source": "簡體中文 view only (absent from English view)",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 34 号：木质",
+       "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+      }
+     ],
+     "name_zh": "木质"
+    }
+   ]
+  }
+ ]
+};
+const flat=[];DATA.categories.forEach((c,ci)=>c.descriptors.forEach(d=>d.examples.forEach((e,i)=>flat.push({c,ci,d,e,i}))));
+const nd=DATA.categories.reduce((a,c)=>a+c.descriptors.length,0);
+document.getElementById('cnt').textContent=`${DATA.categories.length} 大类 · ${nd} 描述词 · ${flat.length} 个参照物`;
+const esc=s=>(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const open=new Set();let cur=null;
+const enBox=document.getElementById('en');enBox.checked=localStorage.getItem('noen')!=='1';
+const applyEn=()=>{document.body.classList.toggle('noen',!enBox.checked);localStorage.setItem('noen',enBox.checked?'0':'1')};enBox.onchange=applyEn;applyEn();
+function render(){const q=document.getElementById('q').value.trim().toLowerCase();let h='';
+ DATA.categories.forEach((c,ci)=>{let ch='',n=0;
+  c.descriptors.forEach(d=>{const ex=d.examples.map((e,i)=>({e,i})).filter(({e})=>!q||[c.category,c.category_zh,d.name,d.name_zh,e.example,e.example_zh,e.brands,e.brands_zh].join(' ').toLowerCase().includes(q));
+   if(!ex.length&&q)return; // when searching, skip empty matches
+   if(ex.length){n+=ex.length;
+    if(c.descriptors.length>1||d.name!==c.category)ch+=`<div class="desc">${d.name_zh}<span class="en">&nbsp;${d.name}</span><span class="cnt">${ex.length}</span></div>`;
+    ex.forEach(({e,i})=>{ch+=`<div class="item ${cur===e?'on':''}" data-k="${ci}|${esc(d.name)}|${i}">${esc(e.example_zh)}<small class="en">${esc(e.example)}</small></div>`});}
+   else if(!q){ // no examples at all for this descriptor (and not searching)
+    if(c.descriptors.length>1||d.name!==c.category)ch+=`<div class="desc">${d.name_zh}<span class="en">&nbsp;${d.name}</span><span class="cnt">0</span></div>`;}
+  });
+  const empty=!n&&!q&&c.descriptors.every(d=>!d.examples.length);
+  if(!n&&!empty)return; // searching with no hits
+  if(empty)ch=`<div class="desc" style="opacity:.7">官方暂无参照物</div>`;
+  const isOpen=q||empty?true:open.has(ci);
+  h+=`<div class="cat ${isOpen?'open':''}" data-c="${ci}"><span class="ar">▶</span>${c.category_zh}<span class="en" style="font-weight:400;margin-left:6px">${c.category}</span><span class="cnt">${n}</span></div>`+(isOpen?ch:'')});
+ document.getElementById('list').innerHTML=h||'<div class="desc">无匹配结果</div>';}
+document.getElementById('list').addEventListener('click',ev=>{const c=ev.target.closest('.cat');if(c){const i=+c.dataset.c;open.has(i)?open.delete(i):open.add(i);render();return}
+ const it=ev.target.closest('.item');if(it){const[ci,dn,i]=it.dataset.k.split('|');pick(+ci,dn,+i)}});
+function steps(s){const p=s.split(/(?<=[。；])/).map(x=>x.replace(/[；]$/,'。').trim()).filter(Boolean);return p.length>1?'<ol>'+p.map(x=>`<li>${esc(x)}</li>`).join('')+'</ol>':esc(s)}
+function pick(ci,dn,i){const f=flat.find(x=>x.ci===ci&&x.d.name===dn&&x.i===i);cur=f.e;open.add(ci);const{c,d,e}=f;
+ const sub=d.name!==c.category;
+ document.getElementById('main').innerHTML=`<button class="chip back" onclick="document.body.classList.remove('detail')">← 返回列表</button><div class="card">
+ <h2>${esc(e.example_zh)}</h2><div class="en">${esc(e.example)}</div>
+ <div class="row" style="margin-top:14px"><b>大类</b><div><span class="tag">${c.category_zh}</span><span class="en">${c.category}</span></div></div>
+ ${sub?`<div class="row"><b>小类</b><div><span class="tag">${d.name_zh}</span><span class="en">${d.name}</span></div></div>`:''}
+ <div class="row"><b>参照物</b><div>${esc(e.example_zh)}</div></div>
+ <div class="row"><b>准备方法</b><div>${steps(e.prepare_zh)}<div class="en" style="margin-top:6px">${esc(e.prepare)}</div></div></div>
+ <div class="row"><b>推荐品牌</b><div>${esc(e.brands_zh)||'—'}${e.brands?`<div class="en">${esc(e.brands)}</div>`:''}</div></div>
+ ${e.source.includes('English')?'':'<div class="note" style="margin-top:8px">※ 此条目仅见于官方简体中文版列表（英文版未收录），英文名为整理时补充。</div>'}
+ <div class="others"><h3>同类其他参照物（${d.examples.length}）</h3>${d.examples.map((x,j)=>`<span class="chip ${j===i?'on':''}" onclick="pick(${ci},'${esc(d.name)}',${j})">${esc(x.example_zh)}</span>`).join('')}</div></div>
+ <p class="note">数据来源：SCA Coffee Value Assessment · Olfactory Examples（sca.coffee），离线整理并译为简体中文，仅供个人训练使用。</p>`;
+ document.body.classList.add('detail');render();document.getElementById('main').scrollTop=0}
+document.getElementById('q').addEventListener('input',render);render();
+if(innerWidth>760)document.getElementById('main').innerHTML='<div class="card"><h2>开始今天的香气训练</h2><p class="note" style="font-size:14px">在左侧点击大类展开，选择一个参照物查看准备方法；也可直接搜索。</p></div>';
+</script></body></html>
