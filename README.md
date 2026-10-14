@@ -13,7 +13,7 @@
 大类顺序：青绿、花香、果香、酸/发酵、香料、甜、坚果、可可、烘焙、其他
 
 ## 安装
-1. 打开 [Releases 页面](https://github.com/jimmybrst/aroma-workbook/releases/latest)，下载最新版本里的 `香气练习册.app.zip`，双击解压
+1. 打开 [Releases 页面](https://github.com/jimmybrst/aroma-workbook/releases/latest)，下载最新版本里的 `aroma-workbook-macos.zip`（[直接下载](https://github.com/jimmybrst/aroma-workbook/releases/latest/download/aroma-workbook-macos.zip)），双击解压，会得到 `香气练习册.app`
 2. 把 `香气练习册.app` 拖到「应用程序」或桌面
 3. 程序没有签名，第一次打开要右键点它，选「打开」，再点「打开」
 4. 如果还是打不开，在终端运行一次：
@@ -41,4 +41,4 @@
 - `index.html`：程序界面，数据已经内置
 - `data_en.json` / `data_zh.json`：英文原始数据和中文数据
 - `screenshot.png` / `icon_preview.png`：截图和图标预览
-- `香气练习册.app.zip`：macOS 程序，不在仓库里，请到 [Releases 页面](https://github.com/jimmybrst/aroma-workbook/releases/latest) 下载
+- `aroma-workbook-macos.zip`：macOS 程序（解压得到 `香气练习册.app`），不在仓库里，请到 [Releases 页面](https://github.com/jimmybrst/aroma-workbook/releases/latest) 下载
