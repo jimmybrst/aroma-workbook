@@ -12,15 +12,34 @@
 
 大类顺序：青绿、花香、果香、酸/发酵、香料、甜、坚果、可可、烘焙、其他
 
-## 安装
-1. 打开 [Releases 页面](https://github.com/jimmybrst/aroma-workbook/releases/latest)，下载最新版本里的 `aroma-workbook-macos.zip`（[直接下载](https://github.com/jimmybrst/aroma-workbook/releases/latest/download/aroma-workbook-macos.zip)），双击解压，会得到 `香气练习册.app`
-2. 把 `香气练习册.app` 拖到「应用程序」或桌面
-3. 程序没有签名，第一次打开要右键点它，选「打开」，再点「打开」
-4. 如果还是打不开，在「终端」运行一次（放在「应用程序」里时）：
-   ```
-   xattr -dr com.apple.quarantine /Applications/香气练习册.app
-   ```
-   如果放在桌面，把路径换成 `~/Desktop/香气练习册.app`
+## 安装（Mac）
+1. 打开 [Releases 页面](https://github.com/jimmybrst/aroma-workbook/releases/latest)，下载 `aroma-workbook-macos.zip`（[直接下载](https://github.com/jimmybrst/aroma-workbook/releases/latest/download/aroma-workbook-macos.zip)）
+2. 双击解压，得到 `香气练习册.app`
+3. 把 `香气练习册.app` 拖到「应用程序」文件夹
+
+### 第一次打开
+作者不是 App Store 开发者，程序没有经过 Apple 签名，所以第一次打开时 macOS 会拦截。这个程序是开源的，可以放心使用。按你的系统版本操作：
+
+**macOS 14 及更早**
+1. 在「应用程序」里右键点 `香气练习册.app`（或按住 Control 键点按）
+2. 选「打开」
+3. 在弹出的提示里再点「打开」
+
+**macOS 15 Sequoia 及以后**
+1. 先双击 `香气练习册.app`，会提示无法打开，点「完成」关掉提示
+2. 打开「系统设置 → 隐私与安全性」
+3. 滚到下方，找到关于「香气练习册」的提示，点「仍要打开」
+4. 输入电脑密码确认
+
+**备用方法（终端）**
+
+如果上面的方法都不行，打开「终端」，粘贴下面这行并按回车：
+```
+xattr -cr /Applications/香气练习册.app
+```
+然后双击 `香气练习册.app` 即可。
+
+只有第一次需要这样做，以后直接双击就能打开。
 
 ### 不想装程序？用浏览器打开
 1. 打开仓库里的 [index.html](https://github.com/jimmybrst/aroma-workbook/blob/main/index.html)，点右上角的下载按钮（Download raw file）把它存到电脑上；或者点仓库首页绿色的「Code」按钮，选「Download ZIP」（[直接下载](https://github.com/jimmybrst/aroma-workbook/archive/refs/heads/main.zip)），解压后找到里面的 index.html
