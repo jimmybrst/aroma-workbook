@@ -928,7 +928,7 @@
        "prepare": "Prepare according to FlavorActiV package instructions.",
        "brands": "FlavorActiv",
        "source": "English view",
-       "example_zh": "FlavorActiV 标准品：异戊酸（奶酪）（异戊酸）",
+       "example_zh": "FlavorActiV 标准品：异戊酸（奶酪味）",
        "prepare_zh": "按照 FlavorActiV 包装说明配制。",
        "brands_zh": "FlavorActiV"
       },
@@ -1155,7 +1155,7 @@
        "prepare": "Prepare according to FlavorActiV package instructions.",
        "brands": "FlavorActiv",
        "source": "English view",
-       "example_zh": "FlavorActiV 标准品：酚味（类丁香）（4-乙烯基愈创木酚）",
+       "example_zh": "FlavorActiV 标准品：酚味（类丁香味，4-乙烯基愈创木酚）",
        "prepare_zh": "按照 FlavorActiV 包装说明配制。",
        "brands_zh": "FlavorActiV"
       }
@@ -1828,7 +1828,7 @@
        "prepare": "Prepare according to FlavorActiV package instructions.",
        "brands": "FlavorActiv",
        "source": "English view",
-       "example_zh": "FlavorActiV 标准品：药味（邻甲酚）（甲基苯酚）",
+       "example_zh": "FlavorActiV 标准品：药味（邻甲酚，甲基苯酚）",
        "prepare_zh": "按照 FlavorActiV 包装说明配制。",
        "brands_zh": "FlavorActiV"
       },
@@ -1874,7 +1874,8 @@
        "source": "簡體中文 view only (absent from English view)",
        "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 29 号：焦油",
        "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
-       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
+       "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）",
+       "note_zh": "官网标为 29 号，与百里香重复；按套装顺序应为 39 号。"
       },
       {
        "id": "recvCjuAfMU3zqAGZ",
@@ -1911,7 +1912,7 @@
        "prepare": "Prepare according to FlavorActiV package instructions.",
        "brands": "FlavorActiv",
        "source": "English view",
-       "example_zh": "FlavorActiV 标准品：霉味/潮湿（2,4,6-三氯苯甲醚（TCA））",
+       "example_zh": "FlavorActiV 标准品：霉味/潮湿（2,4,6-三氯苯甲醚，TCA）",
        "prepare_zh": "按照 FlavorActiV 包装说明配制。",
        "brands_zh": "FlavorActiV"
       },
@@ -1988,7 +1989,7 @@
        "prepare": "One drop of oil on a cotton ball, place in a plastic or glass cup and cover.",
        "brands": "Jean Lenoir, Le Nez du Cafe 2.0, 2025 Edition (60 Aromas)",
        "source": "簡體中文 view only (absent from English view)",
-       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 36 号：霉味/土壤",
+       "example_zh": "Le Nez du Café 2.0 闻香瓶（60味）第 36 号：霉味/土味",
        "prepare_zh": "滴一滴精油/香精于棉球上，放入塑料杯或玻璃杯中并盖好。",
        "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
       },
@@ -2004,7 +2005,7 @@
        "brands_zh": "Jean Lenoir《Le Nez du Café 2.0》2025 版（60 味）"
       }
      ],
-     "name_zh": "霉味土壤"
+     "name_zh": "霉味/土味"
     },
     {
      "name": "Woody",
